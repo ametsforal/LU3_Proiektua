@@ -4,82 +4,7 @@ namespace ConsoleApp1;
 
 class Proiektua
 {
-    //Hasierako menua
-    public void Run()
-    {
-        Console.Clear();
-        Console.WriteLine("===========================");
-        Console.WriteLine("Ongi etorri Taxi's App-era!");
-        Console.WriteLine("===========================");
-        Console.WriteLine("Zer egin nahi duzu?");
-        Console.WriteLine("1. Eskaera bat egin.");
-        Console.WriteLine("2. Eskaerak ikusi. ");
-        Console.WriteLine("3. Irten. ");
-        Console.WriteLine("4. Eskaera bukatu");
-        Console.WriteLine("Mesedez, aukeratu zer egin nahi duzun:(aukeratu zenbakiekin: 1, 2, 3...)");
-        Aukerak();
-    }
-    public void Aukerak() //Hasierako menuaren aukerak erabiltzeko
-    {
-        string? aukera = Console.ReadLine();
-        int auk = int.Parse(aukera!);
-
-        switch (auk)
-        {
-            case 1:
-                janariazkarra();
-                break;
-            case 2:
-                ikusi_eskaerak();
-                break;
-            case 3:
-                Console.Clear();
-                Console.WriteLine("Irtetzen...");
-                break;
-            case 4:
-                konfirmazioa();
-                break;
-            default:
-                Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
-                Aukerak();
-                break;
-        }
-    }
-    //
-    List<string> menu_eskaerak = new List<string>();
-    List<string> pizza_eskaera = new List<string>();
-
-    public void ikusi_eskaerak() // Goiko bi zerrendak erakusteko
-    {
-        if (menu_eskaerak.Count == 0 && pizza_eskaera.Count == 0)
-        {
-            Console.Clear();
-            Console.WriteLine("Oraindik ez dituzu eskaerarik egin! (Intro sakatu)");
-            Console.ReadLine();
-            Run();
-        }
-        else if (menu_eskaerak.Count != 0)
-        {
-            Console.WriteLine("Hauek dira gordetako menu eskaerak:");
-            for (int i = 0; i < menu_eskaerak.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {menu_eskaerak[i]}");
-            }
-            Console.Clear();
-            Run();
-        }
-        if (pizza_eskaera.Count != 0)
-        {
-            Console.WriteLine("Zuk egindako pizza osagai hauek ditu: (intro sakatu aurrera joateko)");
-            for (int i = 0; i < pizza_eskaera.Count; i++)
-            {
-                Console.WriteLine($"{1 + i}. {pizza_eskaera[i]}");
-            }
-            Console.ReadLine();
-        }
-    }
-    List<string> janariamotak = new List<string>() { "1. Pizza", "2. Hanburguesa", };
-    List<string> hanburgesaenpresak = new List<string>() { "1. McDonald's", "2. Burger King" };
+    
     public void janariazkarra() //Aukeratu pizza edo hanburgesa nahi duzun 
     {
         Console.Clear();
@@ -113,7 +38,6 @@ class Proiektua
                 break;
         }
     }
-    List<string> pizzaenpresak = new List<string>() { "1. Telepizza", "2. Pizza Hut" };
     public void Pizza() //pizza aukeratzen baduzu hemen eramango dizu, eta aukerak erakutsiko ditu
     {
         Console.Clear();
@@ -147,8 +71,6 @@ class Proiektua
                 break;
         }
     }
-    List<string> pizzamotak = new List<string> { "1. Lau gazta pizza", "2. Pepperoni pizza",
-    "3. Barbakoa pizza", "4. Anana pizza", "5. Urdaiazpiko eta gazta pizza" };
     public void Telepizza() //telepizza aukeratzen baduzu hemen eramango dizu
     {
         Console.Clear();
@@ -171,27 +93,27 @@ class Proiektua
         {
             case 1:
                 Console.WriteLine("Lau gazta pizza eskaerara gehituta!");
-                menu_eskaerak.Add("Lau gazta pizza (Telepizza)");
+                eskaera.MenuGehitu("Lau gazta pizza (Telepizza)");
                 edaria();
                 break;
             case 2:
                 Console.WriteLine("Pepperoni pizza eskaerara gehituta");
-                menu_eskaerak.Add("Pepperoni pizza (Telepizza)");
+                eskaera.MenuGehitu("Pepperoni pizza (Telepizza)");
                 edaria();
                 break;
             case 3:
                 Console.WriteLine("Barbakoa pizza eskarira gehituta!");
-                menu_eskaerak.Add("Barbakoa pizza (Telepizza)");
+                eskaera.MenuGehitu("Barbakoa pizza (Telepizza)");
                 edaria();
                 break;
             case 4:
                 Console.WriteLine("Anana pizza eskaerara gehituta!");
-                menu_eskaerak.Add("Anana pizza (Telepizza)");
+                eskaera.MenuGehitu("Anana pizza (Telepizza)");
                 edaria();
                 break;
             case 5:
                 Console.WriteLine("Urdaiazpiko eta gazta pizza eskarira gehituta!");
-                menu_eskaerak.Add("Urdaiazpiko eta gazta pizza (Telepizza)");
+                eskaera.MenuGehitu("Urdaiazpiko eta gazta pizza (Telepizza)");
                 edaria();
                 break;
             case 6:
@@ -422,7 +344,6 @@ class Proiektua
     }
 
 
-    List<string> mcdonalds_menu = new List<string>() { "Big Mac", "Cheeseburger", "Pulled Pork", "Hanburgesa klasikoa" };
     public void McDonalds() // Mcdonalds-en jan nahi baduzu hemen eramango dizu
     {
         Console.Clear();
@@ -471,7 +392,6 @@ class Proiektua
                 break;
         }
     }
-    List<string> burgerking = new List<string>() { "Whopper", "Chesseburger", "Double Whopper", "Hanburgesa begetala" };
     public void BurgerKing() // Burger king-en jan nahi baduzu hemen eramango dizu
     {
         Console.Clear();
