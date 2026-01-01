@@ -11,7 +11,7 @@ class Eskaerak
     {
         Menu_eskaerak.Add(produktua);
     }
-    public void PizzaPertsonalizatua(List<string> osagaiak)
+    public void PizzaPertsonalizatua(string osagaiak)
     {
         Pizza_eskaera.AddRange(osagaiak);
     }

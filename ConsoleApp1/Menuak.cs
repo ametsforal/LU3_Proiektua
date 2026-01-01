@@ -132,12 +132,34 @@ class Menuak
                 pizza.Telepizza();
                 int aukera = int.Parse(Console.ReadLine()!);
                 eskaera.EskaeraGehitu(pizza.TelepizzaAukeratu(aukera));
-                eskaera.EskaeraErakutsi();
                 break;
             case 2:
-                pizza.PizzaHut();
-                eskaera.PizzaPertsonalizatua(pizza.BueltatuPertsonalizatua(emaitza));
-                eskaera.EskaeraErakutsi();
+                Console.Clear();
+                Console.WriteLine("Ongi etorri Pizza Hut-era!");
+                Console.WriteLine("*Pizza-Hut-en ezaugarri bat da zuk zure pizza egin dezakezula*");
+                Console.WriteLine("Menua ikusi nahi duzu edo zuk pizza egin nahi duzu?");
+                Console.WriteLine("1. Menua ikusi");
+                Console.WriteLine("2. Pizza 0-tik egin");
+                Console.WriteLine("Aukeratu mesedez:");
+                int auk = int.Parse(Console.ReadLine()!);
+                switch (auk)
+                {
+                    case 1:
+                        pizza.PizzaHut();
+                        int aukera1 = int.Parse(Console.ReadLine()!);
+                        eskaera.EskaeraGehitu(pizza.PizzaHutAukeratu(aukera1));
+                        eskaera.EskaeraErakutsi();
+                        break;
+                    case 2:
+                        pizza.Pizza_egin();
+                        eskaera.PizzaPertsonalizatua(pizza.BueltatuPertsonalizatua(aukera2));
+                        eskaera.EskaeraErakutsi();
+                        break;
+                    default:
+                        Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
+                        Pizza_Aukera();
+                        break;
+                }
                 break;
             case 3:
                 janariazkarra();
@@ -148,4 +170,5 @@ class Menuak
                 break;
         }
     }
+    
 }

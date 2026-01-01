@@ -35,34 +35,12 @@ class Pizzak
     public void PizzaHut()
     {
         Console.Clear();
-        Console.WriteLine("Ongi etorri Pizza Hut-era!");
-        Console.WriteLine("*Pizza-Hut-en ezaugarri bat da zuk zure pizza egin dezakezula*");
-        Console.WriteLine("Menua ikusi nahi duzu edo zuk pizza egin nahi duzu?");
-        Console.WriteLine("1. Menua ikusi");
-        Console.WriteLine("2. Pizza 0-tik egin");
-        Console.WriteLine("Aukeratu mesedez:");
-        int aukera = int.Parse(Console.ReadLine()!);
-
-        switch (aukera)
+        Console.WriteLine("Hona hemen menua:");
+        for (int i = 0; i < pizzamotak.Count; i++)
         {
-            case 1:
-                Console.Clear();
-                Console.WriteLine("Hona hemen menua:");
-                for (int i = 0; i < pizzamotak.Count; i++)
-                {
-                    Console.WriteLine($"{i + 1}. {pizzamotak[i]}");
-                }
-                Console.WriteLine("Mesedez, aukeratu bat");
-                break;
-            case 2:
-                Console.Clear();
-                Pizza_egin();
-                break;
-            default:
-                Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
-                PizzaHut();
-                break;
+            Console.WriteLine($"{i + 1}. {pizzamotak[i]}");
         }
+        Console.WriteLine("Mesedez, aukeratu bat");
     }
     public string PizzaHutAukeratu(int aukera)
     {
@@ -78,8 +56,7 @@ class Pizzak
         {
             Console.WriteLine($"{1 + i}. {osagaiak[i]}");
         }
-        Console.WriteLine("10. Atzera joan");
-        Console.WriteLine("11. Amaitu eta ikusi zure pizza");
+        Console.WriteLine("10. Amaitu eta ikusi zure pizza");
         int auk = int.Parse(Console.ReadLine()!);
         switch (auk)
         {
@@ -110,11 +87,7 @@ class Pizzak
             case 9:
                 pizza.Add(osagaiak[8]);
                 break;
-            case 10:
-                pizza.Clear();
-                PizzaHut();
-                break;
-            case 11:
+            case 10:             
                 break;
             default:
                 Console.WriteLine("Aukera baliogabea, mesedez saiatu berriro (1-11)");
@@ -140,7 +113,6 @@ class Pizzak
                 Console.ReadLine();
                 Pizza_egin();
             }
-            BueltatuPertsonalizatua();
         }
         else
         {
@@ -148,7 +120,7 @@ class Pizzak
             osagai_gehiago();
         }
     }
-    public string BueltatuPertsonalizatua(List<string> emaitza)
+    public string BueltatuPertsonalizatua(string aukera)
     {
         string emaitza = "";
 
