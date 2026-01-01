@@ -11,7 +11,7 @@ class Menuak
         Console.WriteLine("Ongi etorri Taxi's App-era!");
         Console.WriteLine("===========================");
         Console.WriteLine("Zer egin nahi duzu?");
-        Console.WriteLine("1. Eskaera bat egin.");
+        Console.WriteLine("1. Eskaera bat egin edo eskaerarekin jarraitu.");
         Console.WriteLine("2. Eskaerak ikusi. ");
         Console.WriteLine("3. Irten. ");
         Console.WriteLine("4. Eskaera bukatu");
@@ -136,7 +136,8 @@ class Menuak
                 break;
             case 2:
                 pizza.PizzaHut();
-                eskaera.PizzaPertsonalizatua(pizza.BueltatuPertsonalizatua());
+                eskaera.PizzaPertsonalizatua(pizza.BueltatuPertsonalizatua(emaitza));
+                eskaera.EskaeraErakutsi();
                 break;
             case 3:
                 janariazkarra();

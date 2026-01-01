@@ -8,7 +8,7 @@ class Pizzak
     List<string> pizzamotak = new List<string> { "Lau gazta pizza", "Pepperoni pizza",
     "Barbakoa pizza", "Anana pizza", "Urdaiazpiko eta gazta pizza" };
     List<string> osagaiak = new List<string>() { "Gazta", "Urdaiazpikoa", "Pepperoni", "Burrata", "Saltxitxa", "Oilaskoa", "Txanpioia", "Tipula", "Anana" };
-    List<string> pizza = new List<string>(){"Gazta", "urdaiazpikoa", "Pepperoni"};
+    List<string> pizza = new List<string>();
 
     public void PizzaEnpresak()
     {
@@ -148,8 +148,14 @@ class Pizzak
             osagai_gehiago();
         }
     }
-    public string BueltatuPertsonalizatua()
+    public string BueltatuPertsonalizatua(List<string> emaitza)
     {
-        return pizza.Count;
+        string emaitza = "";
+
+        for (int i = 0; i < pizza.Count; i++)
+        {
+            emaitza += pizza[i] + " ";
+        }
+        return emaitza;
     }
 }
