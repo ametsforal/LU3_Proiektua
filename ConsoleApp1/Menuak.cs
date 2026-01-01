@@ -3,7 +3,7 @@ namespace ConsoleApp1;
 class Menuak
 {
     //Hasierako menua
-    Eskaerak eskaera = new Eskaerak();
+    public Eskaerak eskaera = new Eskaerak();
     public void Run()
     {
         Console.Clear();
@@ -15,6 +15,7 @@ class Menuak
         Console.WriteLine("2. Eskaerak ikusi. ");
         Console.WriteLine("3. Irten. ");
         Console.WriteLine("4. Eskaera bukatu");
+        Console.WriteLine("5. Eskaera hustu");
         Console.WriteLine("Mesedez, aukeratu zer egin nahi duzun:(aukeratu zenbakiekin: 1, 2, 3...)");
         Aukerak();
     }
@@ -39,6 +40,12 @@ class Menuak
             case 4:
                 //konfirmazioa();
                 break;
+            case 5:
+                eskaera.EskaeraHustu();
+                Console.Clear();
+                Console.ReadLine();
+                Run();
+                break;
             default:
                 Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
                 Aukerak();
@@ -61,17 +68,25 @@ class Menuak
 
     Hanburgesak hanburgesa = new Hanburgesak();
     Pizzak pizza = new Pizzak();
-    public void janariaukera() // goikoa aukeratu
+    public void janariaukera()
     {
         string? aukera = Console.ReadLine();
         int auk = int.Parse(aukera!);
         switch (auk)
         {
             case 1:
-                //Pizza();
+                Console.Clear();
+                Console.WriteLine("Bi aukera hauek ditugu, mesedez aukeratu bat (1 edo 2)");
+                pizza.PizzaEnpresak();
+                Console.WriteLine("3 sakatu atzera joateko");
+                Pizza_Aukera();
                 break;
             case 2:
+                Console.Clear();
+                Console.WriteLine("Bi aukera hauek ditugu, mesedez aukeratu bat (1 edo 2)");
                 hanburgesa.HanburgesaEnpresak();
+                Console.WriteLine("3 sakatu atzera joateko");
+                Hanburgesa_aukera();
                 break;
             case 3:
                 Run();
@@ -79,6 +94,56 @@ class Menuak
             default:
                 Console.WriteLine("Aukera baliogabea, saiatu berriro mesedez");
                 janariaukera();
+                break;
+        }
+    }
+    public void Hanburgesa_aukera()
+    {
+        string? aukera2 = Console.ReadLine();
+        int auk2 = int.Parse(aukera2!);
+        switch (auk2)
+        {
+            case 1:
+                hanburgesa.Mcdonalds();
+                int aukera = int.Parse(Console.ReadLine()!);
+                eskaera.EskaeraGehitu(hanburgesa.MCHanburgesaAukeratu(aukera));
+                break;
+            case 2:
+                hanburgesa.Burgerking();
+                int aukera1 = int.Parse(Console.ReadLine()!);
+                eskaera.EskaeraGehitu(hanburgesa.BKHanburgesaAukeratu(aukera1));
+                break;
+            case 3:
+                janariazkarra();
+                break;
+            default:
+                Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
+                Hanburgesa_aukera();
+                break;
+        }
+    }
+    public void Pizza_Aukera()
+    {
+        string? aukera2 = Console.ReadLine();
+        int auk2 = int.Parse(aukera2!);
+        switch (auk2)
+        {
+            case 1:
+                pizza.Telepizza();
+                int aukera = int.Parse(Console.ReadLine()!);
+                eskaera.EskaeraGehitu(pizza.TelepizzaAukeratu(aukera));
+                eskaera.EskaeraErakutsi();
+                break;
+            case 2:
+                pizza.PizzaHut();
+                eskaera.PizzaPertsonalizatua(pizza.BueltatuPertsonalizatua());
+                break;
+            case 3:
+                janariazkarra();
+                break;
+            default:
+                Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
+                Pizza_Aukera();
                 break;
         }
     }
