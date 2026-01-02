@@ -4,7 +4,7 @@ namespace ConsoleApp1;
 
 class Eskaerak
 {
-    public List<string> Menu_eskaerak = new List<string>();
+    public List<string> Menu_eskaerak = new List<string>(){"hola"};
     public List<string> Pizza_eskaera = new List<string>();
 
     public void EskaeraGehitu(string produktua)
@@ -29,35 +29,29 @@ class Eskaerak
     }
     public void EskaeraErakutsi()
     {
-
+        Console.Clear();
         if (BiakHutsik())
         {
-            Console.Clear();
-            Console.WriteLine("Zure eskaera hutsik dago (Intro sakatu jarraitzeko)");
-            Console.ReadLine();
+            Console.WriteLine("Zure eskaera hutsik dago");
         }
         if (Hutsik() == false)
         {
-            Console.Clear();
             Console.WriteLine("=== ZURE ESKAERA ===");
             for (int i = 0; i < Menu_eskaerak.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {Menu_eskaerak[i]}");
             }
-            Console.WriteLine("\nIntro sakatu jarraitzeko");
-            Console.ReadLine();
         }
         if (PizzaHutsik() == false)
         {
-            Console.Clear();
             Console.WriteLine("\n=== PIZZA HUT PERTSONALIZATUA ===");
             for (int i = 0; i < Pizza_eskaera.Count; i++)
             {
                 Console.WriteLine($"{1 + i}. {Pizza_eskaera[i]}");
             }
-            Console.WriteLine("\nIntro sakatu jarraitzeko");
-            Console.ReadLine();
         }
+        Console.WriteLine("\nIntro sakatu jarraitzeko");
+        Console.ReadLine();
     }
 
 
@@ -75,15 +69,18 @@ class Eskaerak
             case 1:
                 Menu_eskaerak.Clear();
                 Console.WriteLine("Eskaera hustuta! (Intro sakatu jarraitzeko)");
+                Console.ReadLine();
                 break;
             case 2:
                 Pizza_eskaera.Clear();
                 Console.WriteLine("Eskaera hustuta! (Intro sakatu jarraitzeko)");
+                Console.ReadLine();
                 break;
             case 3:
                 Menu_eskaerak.Clear();
                 Pizza_eskaera.Clear();
                 Console.WriteLine("Eskaera hustuta! (Intro sakatu jarraitzeko)");
+                Console.ReadLine();
                 break;
             case 4:
                 break;

@@ -38,16 +38,15 @@ class Menuak
                 Console.WriteLine("Irtetzen...");
                 break;
             case 4:
-                //konfirmazioa();
+                Konfirmazioa();
                 break;
             case 5:
                 eskaera.EskaeraHustu();
                 Console.Clear();
-                Console.ReadLine();
                 Run();
                 break;
             default:
-                Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
+                Console.WriteLine("Aukera ez da zuzena. Mesedez, 1-5 dagoen zenbaki bat sartu:");
                 Aukerak();
                 break;
         }
@@ -78,14 +77,14 @@ class Menuak
                 Console.Clear();
                 Console.WriteLine("Bi aukera hauek ditugu, mesedez aukeratu bat (1 edo 2)");
                 pizza.PizzaEnpresak();
-                Console.WriteLine("3 sakatu atzera joateko");
+                Console.WriteLine("3. atzera joan");
                 Pizza_Aukera();
                 break;
             case 2:
                 Console.Clear();
                 Console.WriteLine("Bi aukera hauek ditugu, mesedez aukeratu bat (1 edo 2)");
                 hanburgesa.HanburgesaEnpresak();
-                Console.WriteLine("3 sakatu atzera joateko");
+                Console.WriteLine("3. Atzera joan");
                 Hanburgesa_aukera();
                 break;
             case 3:
@@ -121,6 +120,7 @@ class Menuak
                 Hanburgesa_aukera();
                 break;
         }
+        Edaria();
     }
     public void Pizza_Aukera()
     {
@@ -148,15 +148,16 @@ class Menuak
                         pizza.PizzaHut();
                         int aukera1 = int.Parse(Console.ReadLine()!);
                         eskaera.EskaeraGehitu(pizza.PizzaHutAukeratu(aukera1));
-                        eskaera.EskaeraErakutsi();
                         break;
                     case 2:
                         pizza.Pizza_egin();
                         eskaera.PizzaPertsonalizatua(pizza.BueltatuPertsonalizatua(aukera2));
-                        eskaera.EskaeraErakutsi();
                         break;
                     default:
-                        Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
+                        Console.Clear();
+                        Console.WriteLine("Aukera ez da zuzena. Mesedez, berriro aukeratu:");
+                        pizza.PizzaEnpresak();
+                        Console.WriteLine("3. Atzera joan");
                         Pizza_Aukera();
                         break;
                 }
@@ -169,6 +170,119 @@ class Menuak
                 Pizza_Aukera();
                 break;
         }
+        Edaria();
     }
-    
+    Edariak edaria = new Edariak();
+    public void Edaria()
+    {
+        Console.WriteLine("Edaririk nahi duzu? Bai(b)/Ez(e)");
+        string a = Console.ReadLine()!;
+
+        if (a == "b" || a == "B")
+        {
+            edaria.EdariakErakutsi();
+            int aukera = int.Parse(Console.ReadLine()!);
+            switch (aukera)
+            {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    eskaera.EskaeraGehitu(edaria.EdariaAukeratu(aukera));
+                    Postrea();
+                    break;
+                case 6:
+                    Console.Clear();
+                    Console.WriteLine("Ez duzu edaririk aukeratu.");
+                    break;
+                default:
+                    Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
+                    Edaria();
+                    break;
+            }
+        }
+        else if (a == "e" || a == "E")
+        {
+            Postrea();
+        }
+        else
+        {
+            Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu b edo e ");
+            Edaria();
+        }
+
+    }
+    Postreak postre = new Postreak();
+    public void Postrea()
+    {
+        Console.Clear();
+        Console.WriteLine("Postrerik nahi duzu? Bai(b)/Ez(e)");
+        string? a = Console.ReadLine()!;
+        if (a == "b" || a == "B")
+        {
+            postre.PostreakErakutsi();
+            int aukera = int.Parse(Console.ReadLine()!);
+            switch (aukera)
+            {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    eskaera.EskaeraGehitu(postre.PostreaAukeratu(aukera));
+                    Eskaeragehiago();
+
+                    break;
+                case 5:
+                    Console.Clear();
+                    Console.WriteLine("Ez duzu postrerik aukeratu.");
+                    break;
+                default:
+                    Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
+                    Postrea();
+                    break;
+            }
+        }
+        else if (a == "e" || a == "E")
+        {
+            Eskaeragehiago();
+        }
+        else
+        {
+            Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu b edo e "); ;
+            Postrea();
+        }
+    }
+    public void Eskaeragehiago() //Zerbait gehiago egin nahi duzun galdetuko du, erantzuna bai bada, hasierako menura eramango dizu
+    {
+        Console.WriteLine("Zerbait gehiago egin nahi duzu? Bai(b)/Ez(e)");
+        string? aukera = Console.ReadLine();
+        if (aukera == "b" || aukera == "B")
+        {
+            Run();
+        }
+        else if (aukera == "e" || aukera == "E")
+        {
+            Konfirmazioa();
+        }
+        else
+        {
+            Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu b edo e "); ;
+            Eskaeragehiago();
+        }
+    }
+    Bezeroak bezeroa = new Bezeroak();
+    public void Konfirmazioa()
+    {
+        if (eskaera.BiakHutsik() == true)
+        {
+            Console.WriteLine("Zure eskaera hustik dago! (Intro sakatu)");
+            Console.ReadLine();
+            Run();
+        }
+        else if (eskaera.BiakHutsik() == false)
+        {
+            bezeroa.DatuakEzarri();
+        }
+    }
 }

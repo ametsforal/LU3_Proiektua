@@ -2,7 +2,7 @@ namespace ConsoleApp1;
 
 class Postreak
 {
-    List<string> postreak = new List<string>() { "1. Izozkia", "2. Pastela", "3. Fruitua", "4. Donut" };
+    List<string> postreak = new List<string>() { "Izozkia", "Pastela", "Fruitua", "Donut" };
 
     public void PostreakErakutsi()
     {
@@ -10,10 +10,13 @@ class Postreak
         Console.WriteLine("Zer postre nahi duzu?");
         for (int i = 0; i < postreak.Count; i++)
         {
-            Console.WriteLine(postreak[i]);
+            Console.WriteLine($"{i + 1}. {postreak[i]}");
         }
         Console.WriteLine("5. Ez dut postrerik nahi");
         Console.WriteLine("Aukeratu bat mesedez:");
     }
-
+     public string PostreaAukeratu(int aukera)
+    {
+        return postreak[aukera - 1] + " (Postrea)";
+    }
 }
