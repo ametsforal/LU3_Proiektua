@@ -4,6 +4,8 @@ class Menuak
 {
     //Hasierako menua
     public Eskaerak eskaera = new Eskaerak();
+    Bezeroak bezeroa = new Bezeroak();
+
     public void Run()
     {
         Console.Clear();
@@ -16,6 +18,7 @@ class Menuak
         Console.WriteLine("3. Irten. ");
         Console.WriteLine("4. Eskaera bukatu");
         Console.WriteLine("5. Eskaera hustu");
+        Console.WriteLine("6. Nire datuak ikusi");
         Console.WriteLine("Mesedez, aukeratu zer egin nahi duzun:(aukeratu zenbakiekin: 1, 2, 3...)");
         Aukerak();
     }
@@ -45,8 +48,12 @@ class Menuak
                 Console.Clear();
                 Run();
                 break;
+            case 6:
+                bezeroa.DatuakDaude2();
+                Run();
+                break;
             default:
-                Console.WriteLine("Aukera ez da zuzena. Mesedez, 1-5 dagoen zenbaki bat sartu:");
+                Console.WriteLine("Aukera ez da zuzena. Mesedez, 1-6 dagoen zenbaki bat sartu:");
                 Aukerak();
                 break;
         }
@@ -194,7 +201,7 @@ class Menuak
                     break;
                 case 6:
                     Console.Clear();
-                    Console.WriteLine("Ez duzu edaririk aukeratu.");
+                    Postrea();
                     break;
                 default:
                     Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
@@ -235,7 +242,7 @@ class Menuak
                     break;
                 case 5:
                     Console.Clear();
-                    Console.WriteLine("Ez duzu postrerik aukeratu.");
+                    Eskaeragehiago();
                     break;
                 default:
                     Console.WriteLine("Aukera ez da zuzena. Mesedez, sartu gaituta dagoen zenbaki bat.");
@@ -271,7 +278,6 @@ class Menuak
             Eskaeragehiago();
         }
     }
-    Bezeroak bezeroa = new Bezeroak();
     public void Konfirmazioa()
     {
         if (eskaera.BiakHutsik() == true)
@@ -282,7 +288,34 @@ class Menuak
         }
         else if (eskaera.BiakHutsik() == false)
         {
+            Console.Clear();
+            Console.WriteLine("Zure eskaera honako hau da:");
+            eskaera.EskaeraErakutsi();
             bezeroa.DatuakEzarri();
+            Console.WriteLine("\nZure eskaera arrakastatsua izan da! Eskerrik asko gure zerbitzua erabiltzeagatik. (Intro sakatu)");
+            Console.ReadLine();
+            
+        }
+    }
+    public void BesteEskaera()
+    {
+        Console.WriteLine("Eskaera berri bat egin nahi duzu? Bai(b)/Ez(e)");
+        string? aukera = Console.ReadLine()!;
+        if (aukera == "b" || aukera == "B")
+        {
+            eskaera.EskaeraGarbitu();
+            Run();
+        }
+        else if (aukera == "e" || aukera == "E")
+        {
+            Console.Clear();
+            Console.WriteLine("Eskerrik asko Taxi's erabiltzeagatik. Ongi Izan!");
+        }
+        else
+        {
+            Console.WriteLine("Aukera baliogabea, mesedez berriro saiatu (Intro sakatu)");
+            Console.ReadLine();
+            BesteEskaera();
         }
     }
 }

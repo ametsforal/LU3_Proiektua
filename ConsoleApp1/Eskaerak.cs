@@ -4,7 +4,7 @@ namespace ConsoleApp1;
 
 class Eskaerak
 {
-    public List<string> Menu_eskaerak = new List<string>(){"hola"};
+    public List<string> Menu_eskaerak = new List<string>();
     public List<string> Pizza_eskaera = new List<string>();
 
     public void EskaeraGehitu(string produktua)
@@ -32,7 +32,8 @@ class Eskaerak
         Console.Clear();
         if (BiakHutsik())
         {
-            Console.WriteLine("Zure eskaera hutsik dago");
+            Console.Clear();
+            Console.WriteLine("Zure eskaera hutsik dago! (Intro sakatu jarraitzeko)");
         }
         if (Hutsik() == false)
         {
@@ -50,7 +51,6 @@ class Eskaerak
                 Console.WriteLine($"{1 + i}. {Pizza_eskaera[i]}");
             }
         }
-        Console.WriteLine("\nIntro sakatu jarraitzeko");
         Console.ReadLine();
     }
 
@@ -90,5 +90,10 @@ class Eskaerak
                 Console.ReadLine();
                 break;
         }
+    }
+    public void EskaeraGarbitu()
+    {
+        Menu_eskaerak.Clear();
+        Pizza_eskaera.Clear();
     }
 }
