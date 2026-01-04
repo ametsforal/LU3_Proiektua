@@ -31,9 +31,19 @@ class Bezeroak
         if (DatuakDaude())
         {
             Console.Clear();
-            Console.WriteLine("Zure datuak ez daude ezarrita, mesedez ezarri datuak (intro sakatu)");
-            Console.ReadLine();
+            Console.WriteLine("Zure datuak ez daude ezarrita, ezarri nahi dituzu orain? Bai(b)/Ez(e)");
+            string? a = Console.ReadLine()!;
+            if (a == "b" || a == "B")
+            {
             DatuakEzarri();
+            }
+            else if (a == "e" || a == "E"){}
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("'b' edo 'e' letrekion erantzun mesedez");
+                DatuakDaude2();
+            }
         }
         else
         {
@@ -56,7 +66,7 @@ class Bezeroak
         {
             DatuakEzarri();
         }
-        else if (a == "e" || a == "E");
+        else if (a == "e" || a == "E"){}
         else
         {
             Console.Clear();

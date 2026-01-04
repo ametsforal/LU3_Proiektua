@@ -57,7 +57,15 @@ class Eskaerak
 
     public void EskaeraHustu()
     {
-        Console.Clear();
+        if (BiakHutsik())
+        {
+            Console.Clear();
+            Console.WriteLine("Zure eskaera hutsik dago! (Intro sakatu jarraitzeko)");
+            Console.ReadLine();
+        }
+        else
+        {
+                    Console.Clear();
         Console.WriteLine("Zein hustu nahi duzu?");
         Console.WriteLine("1. Menu eskaera");
         Console.WriteLine("2. Pizza pertsonalizatua");
@@ -90,6 +98,8 @@ class Eskaerak
                 Console.ReadLine();
                 break;
         }
+        }
+
     }
     public void EskaeraGarbitu()
     {

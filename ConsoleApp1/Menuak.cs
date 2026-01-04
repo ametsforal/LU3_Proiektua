@@ -15,11 +15,11 @@ class Menuak
         Console.WriteLine("Zer egin nahi duzu?");
         Console.WriteLine("1. Eskaera bat egin edo eskaerarekin jarraitu.");
         Console.WriteLine("2. Eskaerak ikusi. ");
-        Console.WriteLine("3. Irten. ");
-        Console.WriteLine("4. Eskaera bukatu");
-        Console.WriteLine("5. Eskaera hustu");
-        Console.WriteLine("6. Nire datuak ikusi");
-        Console.WriteLine("Mesedez, aukeratu zer egin nahi duzun:(aukeratu zenbakiekin: 1, 2, 3...)");
+        Console.WriteLine("3. Eskaera hustu. ");
+        Console.WriteLine("4. Nire datuak ikusi");
+        Console.WriteLine("5. Eskaera bukatu");
+        Console.WriteLine("6. Irten");
+        Console.WriteLine("Mesedez, aukeratu zer egin nahi duzun: (aukeratu zenbakiekin: 1, 2, 3...)");
         Aukerak();
     }
     public void Aukerak() //Hasierako menuaren aukerak erabiltzeko
@@ -37,20 +37,20 @@ class Menuak
                 Run();
                 break;
             case 3:
-                Console.Clear();
-                Console.WriteLine("Irtetzen...");
-                break;
-            case 4:
-                Konfirmazioa();
-                break;
-            case 5:
                 eskaera.EskaeraHustu();
                 Console.Clear();
                 Run();
                 break;
-            case 6:
+            case 4:
                 bezeroa.DatuakDaude2();
                 Run();
+                break;
+            case 5:
+                Konfirmazioa();
+                break;
+            case 6:
+                Console.Clear();
+                Console.WriteLine("Irtetzen...");
                 break;
             default:
                 Console.WriteLine("Aukera ez da zuzena. Mesedez, 1-6 dagoen zenbaki bat sartu:");
@@ -282,6 +282,7 @@ class Menuak
     {
         if (eskaera.BiakHutsik() == true)
         {
+            Console.Clear();
             Console.WriteLine("Zure eskaera hustik dago! (Intro sakatu)");
             Console.ReadLine();
             Run();

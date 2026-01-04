@@ -120,7 +120,7 @@ class Pizzak
             osagai_gehiago();
         }
     }
-    public string BueltatuPertsonalizatua(string aukera)
+    public string BueltatuPertsonalizatua(string? aukera)
     {
         string emaitza = "";
 
