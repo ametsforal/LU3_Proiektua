@@ -290,21 +290,39 @@ class Menuak
         else if (eskaera.BiakHutsik() == false)
         {
             Console.Clear();
+            bezeroa.DatuakEzarri();
             Console.WriteLine("Zure eskaera honako hau da:");
             eskaera.EskaeraErakutsi();
-            bezeroa.DatuakEzarri();
-            Console.WriteLine("\nZure eskaera arrakastatsua izan da! Eskerrik asko gure zerbitzua erabiltzeagatik. (Intro sakatu)");
-            Console.ReadLine();
-            
+            Console.WriteLine("\nZure datuak honako hauek dira:");
+            bezeroa.DatuakIkusi();
+            Console.WriteLine("Benetan bukatu nahi duzu? Bai(b)/Ez(e)");
+            string? aukera = Console.ReadLine()!;
+            if (aukera == "e" || aukera == "E")
+            {
+                Run();
+            }
+            else if (aukera == "b" || aukera == "B")
+            {
+                Console.Clear();
+                Console.WriteLine("Zure eskaera arrakastatsua izan da! (Intro sakatu)");
+                Console.ReadLine();
+                BesteEskaera();
+            }
+            else {
+                Console.WriteLine("Aukera baliogabea, mesedez berriz hasi (Intro sakatu)");
+                Console.ReadLine();
+                Konfirmazioa();}
         }
     }
     public void BesteEskaera()
     {
+        Console.Clear();
         Console.WriteLine("Eskaera berri bat egin nahi duzu? Bai(b)/Ez(e)");
         string? aukera = Console.ReadLine()!;
         if (aukera == "b" || aukera == "B")
         {
             eskaera.EskaeraGarbitu();
+            bezeroa.DatuakHustu();
             Run();
         }
         else if (aukera == "e" || aukera == "E")

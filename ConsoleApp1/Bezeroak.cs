@@ -20,7 +20,6 @@ class Bezeroak
         helbidea = Console.ReadLine();
         Console.Write("Zure mugikor zenbakia: ");
         zenbakia = int.Parse(Console.ReadLine()!);
-        Console.WriteLine($"{izena} {abizena1} {abizena2} {helbidea} {zenbakia}");
     }
     public bool DatuakDaude()
     {
