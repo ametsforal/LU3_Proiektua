@@ -10,6 +10,7 @@
 ## Aurkibidea
 * [Introdukzioa](#introdukzioa)
 * [Nola erabili?](#erabilpena)
+* [Proiektuaren egoera](#proiektuaren-egoera)
 * [Egileak](#egileak)
 
 ## Introdukzioa
